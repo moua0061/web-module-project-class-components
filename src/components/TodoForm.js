@@ -20,14 +20,14 @@ class TodoForm extends React.Component {
 
     onSubmit = evt => {
         evt.preventDefault();
-        this.props.addTodo(this.state.input)
+        this.props.handleSubmit(this.state.input)
         this.setState({
             input:""
         });
     };
 
     onClick = () => {
-        this.props.clearAll()
+        this.props.handleClear()
     };
 
     render(){

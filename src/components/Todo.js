@@ -4,7 +4,7 @@ import React from "react";
 class Todo extends React.Component {
 
     onClick = () => {
-        this.props.completedTodo(this.props.todo);
+        this.props.onChange(this.props.todo);
     };
 
     render() {

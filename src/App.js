@@ -25,7 +25,7 @@ class App extends React.Component {
     }
   };
 
-  addTodo = todo => {
+  handleSubmit = todo => {
     const newTodo = {
       task: todo,
       id: Date.now(),
@@ -37,7 +37,7 @@ class App extends React.Component {
     })
   };
 
-  completedTodo = task =>{
+  onChange = task =>{
     this.setState({
       ...this.state,
       todos: this.state.todos.map(todo =>{
@@ -50,7 +50,7 @@ class App extends React.Component {
     });
   };
 
-  clearAll = () => {
+  handleClear = () => {
     this.setState({
       ...this.state,
       todos: this.state.todos.filter(todo =>{
@@ -65,8 +65,8 @@ class App extends React.Component {
           <div className="header">
             <h1>Your Todo List!</h1>
           </div>
-          <TodoForm addTodo={this.addTodo} clearAll={this.clearAll}/>
-          <TodoList todos={this.state.todos} completedTodo={this.completedTodo}/>
+          <TodoForm handleSubmit={this.handleSubmit} handleClear={this.handleClear}/>
+          <TodoList todos={this.state.todos} onChange={this.onChange}/>
         </div>
     );
   };
